@@ -1,10 +1,10 @@
 var mMass, jMass, mHeight, jHeight, mBmi, jBmi;
 
 mMass = 60;
-mHeight = 190; 
+mHeight = 1.90; 
 
 jMass = 90;
-jHeight = 160; 
+jHeight = 1.60; 
 
 mBmi = mMass / (mHeight*mHeight);
 jBmi = jMass / (jHeight*jHeight);
