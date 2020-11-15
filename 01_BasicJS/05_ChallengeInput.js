@@ -2,7 +2,7 @@ printWelcome();
 
 const prompt = require( "prompt-sync" )( { sigint: true } );
 
-let person = {
+let thePerson = {
     key: [], 
     name: [], 
     mass: [], 
@@ -20,9 +20,10 @@ let person = {
 let people = getPeople();
 getData( people );
 
-person.calcBmi();
+thePerson.calcBmi();
+thePerson = sortBmi( thePerson );
 
-console.log( person );
+console.log( thePerson );
 
 function printWelcome (  ){
     console.log( "=========================================" );
@@ -41,11 +42,32 @@ function getPeople (){
 
 function getData ( people ){
     for ( let i=0; i<people; i++ ){
-        person.key[i] = i;
-        person.name[i] = prompt( "Name: " );
-        person.mass[i] = prompt( "Mass: " );
-        person.height[i] = prompt( "Height: " );
+        thePerson.key[i] = i;
+        thePerson.name[i] = prompt( "Name: " );
+        thePerson.mass[i] = prompt( "Mass: " );
+        thePerson.height[i] = prompt( "Height: " );
         console.log();
     }
 }
 
+function sortBmi ( theP ){
+    for ( let i=0; i<theP.bmi.length; i++ ){
+        for ( let j=i+1; j<theP.bmi.length; j++ ){
+            if ( theP.bmi[j]>theP.bmi[i] ){
+                let temp = theP.name[i];
+                theP.name[i] = theP.name[j];
+                theP.name[j] = temp;
+                temp = theP.mass[i];
+                theP.mass[i] = theP.mass[j];
+                theP.mass[j] = temp;
+                temp = theP.height[i];
+                theP.height[i] = theP.height[j];
+                theP.height[j] = temp;
+                temp = theP.bmi[i];
+                theP.bmi[i] = theP.bmi[j];
+                theP.bmi[j] = temp;
+            }
+        }
+    }
+    return theP;
+}
