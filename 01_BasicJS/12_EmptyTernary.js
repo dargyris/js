@@ -31,3 +31,5 @@ if ( `${shouldDrive}` ){
     console.log( `She `
 + `is able to drive` );
 }
+
+console.log( `She ${hasLicence?"can": "can not"} drive.` );
