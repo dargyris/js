@@ -1,5 +1,5 @@
 let theTips = {
-    itsBill: [275, 40, 430],
+    itsBill: [275, 40, 430, -50],
     printTips: function (){
         for ( let i=0; i<this.itsBill.length; i++ ){
             console.log( `Steven payed `
